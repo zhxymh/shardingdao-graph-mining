@@ -1,0 +1,18 @@
+type PoolInfo @entity{
+  id: ID!
+  tokenAddress: Bytes!
+  tokenSymbol: String!
+  tokenDecimals: BigInt!
+}
+
+type UserInfo @entity{
+  id: ID!
+  tokens: [UserTokenInfo!]! @derivedFrom(field: "user")
+}
+
+type UserTokenInfo @entity{
+  id: ID!
+  user: UserInfo!
+  pool: PoolInfo!
+  amount: BigDecimal!
+}

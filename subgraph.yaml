@@ -1,0 +1,37 @@
+specVersion: 0.0.2
+description: ShardingDAO for Ethereum
+repository: https://github.com/zhxymh/shardingdao-graph-mining
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: ShardingDAO
+    network: mainnet
+    source:
+      address: '0x0feCcB11C5B61B3922C511d0f002c0b72D770dCE'
+      abi: MarketingMiningDelegator
+      startBlock: 12085837
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - PoolInfo
+        - UserInfo
+        - UserTokenInfo
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+        - name: ERC20SymbolBytes
+          file: ./abis/ERC20SymbolBytes.json
+        - name: MarketingMiningDelegator
+          file: ./abis/MarketingMiningDelegator.json
+      eventHandlers:
+        - event: AddPool(indexed uint256,address)
+          handler: handleAddPool
+        - event: Deposit(indexed address,indexed uint256,uint256,uint256)
+          handler: handleDeposit
+        - event: Withdraw(indexed address,indexed uint256,uint256)
+          handler: handleWithdraw
+      file: ./src/mapping.ts
+
