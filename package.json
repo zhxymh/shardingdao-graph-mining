@@ -4,14 +4,14 @@
   "scripts": {
     "build-contract": "solc contracts/Gravity.sol --abi -o abis --overwrite && solc contracts/Gravity.sol --bin -o bin --overwrite",
     "create": "graph create zhxymh/shardingdao-mining --node https://api.thegraph.com/deploy/",
-    "create-local": "graph create zhxymh/shardingdao-mining --node http://127.0.0.1:8020",
+    "create-local": "graph create zhxymh/shardingdao-mining --node http://18.183.43.218:8020",
     "codegen": "graph codegen",
     "prepare:mainnet": "mustache config/mainnet.json subgraph.template.yaml > subgraph.yaml",
     "prepare:kovan": "mustache config/kovan.json subgraph.template.yaml > subgraph.yaml",
     "build": "graph build",
     "deploy-mainnet": "graph deploy zhxymh/shardingdao-mining --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
     "deploy-kovan": "graph deploy zhxymh/shardingdao-mining-kovan --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
-    "deploy-local": "graph deploy zhxymh/shardingdao-mining --ipfs http://localhost:5001 --node http://127.0.0.1:8020",
+    "deploy-local": "graph deploy zhxymh/shardingdao-mining --ipfs http://18.183.43.218:5001 --node http://18.183.43.218:8020",
     "deploy:mainnet": "yarn prepare:mainnet && yarn deploy-mainnet",
     "deploy:kovan": "yarn prepare:kovan && yarn deploy-kovan"
   },

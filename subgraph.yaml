@@ -8,9 +8,9 @@ dataSources:
     name: ShardingDAO
     network: mainnet
     source:
-      address: '0x0feCcB11C5B61B3922C511d0f002c0b72D770dCE'
+      address: '0x162017bd427604433CC93Ba3D0045D8A047F226D'
       abi: MarketingMiningDelegator
-      startBlock: 12085837
+      startBlock: 5892591
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
